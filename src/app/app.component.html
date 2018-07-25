@@ -1,20 +1,72 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--Method 1 :using [(ngModel)] -->
+<!-- See video for method 1 : https://coursetro.com/posts/code/108/Angular-5-Interpolation,-Property-Binding-&-Event-Binding-Tutorial -->
+<!-- <span> userid:
+    <input type="text" [(ngModel)]="userid"> </span>
+<span> name:
+    <input type="text" [(ngModel)]="name">
+</span>
+<span> technology:
+    <input type="text" [(ngModel)]="technology">
+</span>
+<span>
+    <button (click)="onChange()">Submit</button>
+</span> -->
 
+<!-- Method 2: using template refernce -->
+<!-- See video for method 2
+Also refer : C:\Users\Ravi\Desktop\HTML\Angular : childtoparent recording
+ -->
+<span> userid:
+        <input type="text" #ref1> </span>
+    <span> name:
+        <input type="text" #ref2>
+    </span>
+    <span> technology:
+        <input type="text" #ref3>
+    </span>
+    <span>
+        <button (click)="onChange(ref1.value,ref2.value,ref3.value)">Submit</button>
+    </span>
+    
+<br>
+
+<br>
+<br>
+<table width="500px" style="border: 1px solid black; ">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Technology
+        </th>
+    </tr>
+    <td>
+        <tr *ngFor="let key of useridlist">
+
+            {{key}}
+        </tr>
+    </td>
+    <td>
+        <tr *ngFor="let key of namelist">
+
+            {{key}}
+        </tr>
+    </td>
+    <td>
+        <tr *ngFor="let key of technologylist">
+
+            {{key}}
+        </tr>
+    </td>
+
+</table>
+
+<!-- template refernce variable eg -->
+<!-- 
+<input type="text" #refe><br/>
+<button (click)="customMethod()">Add</button>
+<p>{{custom}}</p> -->
